@@ -7,23 +7,15 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
     text-decoration: none;
 }
 
-.container {
-    width: 100%;
-    max-width: 1125px;
-    margin: 0 auto;
-    padding: 30px;
-    box-shadow: 10px 0px 5px #636363;
+:root {
+    --cor-background-primaria: #45dbfc;
+    --cor-background-secundaria: #04133d;
+    --cor-texto-primaria: #636363;
+    --cor-texto-secundaria: #000;
 }
 
 .hidden {
     display: none;
-}
-
-.linha {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between ;
 }
 
 .coluna {
@@ -36,8 +28,8 @@ body {
 }
 /* HEADER */
 header {
-    background-color: #45dbfc;
-    padding-top: 30px;
+    background-color: var(--cor-background-primaria); /* MODIFICAR A COR */
+    padding: 30px 30px 0;
 }
 
 header .container {
@@ -56,24 +48,26 @@ header .coluna-esquerda {
 
 header .coluna-direita {
     flex-basis: 70%;
+    text-align: center;
 }
 
 header .coluna figure {}
 
 header .coluna img {
-    max-width: 250px;
-    border-radius: 50px; /* *****************************
+    max-width: 100%;
+ /* *****************************
     ADICIONAR UMA FOTO QUADRADA 
     *****************************/
 }
 
 header .coluna h1 {
     font-size: 1.5rem;
+    color: var(--cor-texto-secundaria);
 }
 
 header .coluna p {
     font-size: 1rem;
-    color: #636363;
+    color: var(--cor-texto-primaria);
 }
 
 header .coluna ul {
@@ -86,11 +80,13 @@ header .coluna ul li {
 
 header .coluna ul li a {
     font-size: 1rem;
-    color: black;
+    color: var(--cor-texto-secundaria);
 }
 
 /* FOOTER */
-footer {}
+footer {
+    background-color: var(--cor-background-secundaria);
+}
 
 footer .container {}
 
@@ -102,17 +98,36 @@ footer nav ul li a {}
 
 footer nav .info-contato {}
 
-footer nav .info-contato li {}
+footer nav .info-contato li {
+    margin: 0 0 15px;
+}
 
-footer nav .info-contato li a {}
+footer nav .info-contato li a {
+    color: white;
+}
 
-footer nav .redes-sociais {}
+footer nav .redes-sociais {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ccc;
+    margin: 20px 0 50px;
+    padding: 50px 0 0;
+    text-align: center;
+}
 
-footer nav .redes-sociais li {}
+footer nav .redes-sociais li {
+    margin: 0 20px;
+    text-align: left;
+    display: inline-block;
+}
 
-footer nav .redes-sociais li a {}
+footer nav .redes-sociais li a {
+    color: white;
+}
 
-footer nav .redes-sociais li a img {}
+footer nav .redes-sociais li a img {
+    width: 48px;
+}
 
 footer nav .redes-sociais li a img p {}
 
@@ -123,16 +138,19 @@ main .container {}
 
 main .linha {}
 
-main .coluna {}
+main .coluna {
+    padding: 20px;
+}
 
 main .coluna-esquerda {}
 
 main .coluna-direita {}
 
 main .coluna section {
-    border: 1px solid #d4e9ff;
+    border-bottom: 1px solid #d4e9ff;
     margin: 0 0 20px;
-    padding: 20px;
+    min-height: 187px;
+    color: var(--cor-texto-secundaria);
 }
 
 main .coluna section h2 {
@@ -142,7 +160,7 @@ main .coluna section h2 {
 
 main .coluna section p {
     font-size: 0.9rem;
-    color: #636363;
+    color: var(--cor-texto-primaria);
     line-height: 1.5;
     min-height: 190px;
 }
@@ -167,4 +185,71 @@ main .coluna section ul li strong {
 main .coluna section ul li p {}
 
 /* EXTRAS */
+/* .dark-mode {
+    --cor-background-primaria: #000;
+    --cor-background-secundaria: #000;
+}
+
+.dark-mode header {
+    background-color: var(--cor-background-secundaria);
+}
+
+header .container {
+    background-color: var(--cor-background-secundaria);
+}
+
+.dark-mode main {
+    background-color: var(--cor-background-secundaria);
+} */
+
 /* @MEDIA */
+@media only screen and (min-width: 768px) {
+  
+    .linha {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between ;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1125px;
+        margin: 0 auto;
+        padding: 30px;
+        /* box-shadow: 10px 0px 5px #636363; */
+    }
+
+    footer nav .redes-sociais {
+        display: flex;
+        justify-content: center;
+    }
+
+    header {
+        padding: 30px 0 0;
+    }
+
+    header .coluna img {
+        max-width: 250px;
+        border-radius: 50px;
+    }
+
+    header .coluna-direita {
+        text-align: left;
+    }
+
+    main .coluna section {
+        border: 1px solid #d4e9ff;
+        padding: 20px;
+    }
+
+    main .coluna {
+        padding: 0;
+    }
+
+    footer nav .redes-sociais li {
+        margin: 0 15px;
+        text-align: center;
+        display: initial;
+    }
+}
