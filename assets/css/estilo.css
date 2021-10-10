@@ -8,8 +8,8 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
 }
 
 :root {
-    --cor-background-primaria: #45dbfc;
-    --cor-background-secundaria: #04133d;
+    --cor-background-primaria: #7f8fa6;
+    --cor-background-secundaria: #353b48;
     --cor-texto-primaria: #636363;
     --cor-texto-secundaria: #000;
 }
@@ -26,14 +26,16 @@ html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li
 body {
     font-family: 'Open Sans', sans-serif;
 }
+
 /* HEADER */
 header {
-    background-color: var(--cor-background-primaria); /* MODIFICAR A COR */
+    background-color: var(--cor-background-primaria);
+    /* MODIFICAR A COR */
     padding: 30px 30px 0;
 }
 
 header .container {
-    background-color: white;
+    background-color: #f4f4f4;
 }
 
 header .linha {
@@ -55,9 +57,6 @@ header .coluna figure {}
 
 header .coluna img {
     max-width: 100%;
- /* *****************************
-    ADICIONAR UMA FOTO QUADRADA 
-    *****************************/
 }
 
 header .coluna h1 {
@@ -103,7 +102,7 @@ footer nav .info-contato li {
 }
 
 footer nav .info-contato li a {
-    color: white;
+    color: #f4f4f4;
 }
 
 footer nav .redes-sociais {
@@ -122,7 +121,7 @@ footer nav .redes-sociais li {
 }
 
 footer nav .redes-sociais li a {
-    color: white;
+    color: #f4f4f4;
 }
 
 footer nav .redes-sociais li a img {
@@ -132,6 +131,7 @@ footer nav .redes-sociais li a img {
 footer nav .redes-sociais li a img p {}
 
 /* PÁGINA INICIAL */
+
 main {}
 
 main .container {}
@@ -185,33 +185,91 @@ main .coluna section ul li strong {
 main .coluna section ul li p {}
 
 /* EXTRAS */
-/* .dark-mode {
-    --cor-background-primaria: #000;
-    --cor-background-secundaria: #000;
-}
-
-.dark-mode header {
-    background-color: var(--cor-background-secundaria);
+.ativar-dark {
+    width: 50px;
+    height: 50px;
+    display: none;
 }
 
 header .container {
-    background-color: var(--cor-background-secundaria);
+    position: relative;
 }
 
-.dark-mode main {
-    background-color: var(--cor-background-secundaria);
-} */
+label {
+    position: absolute;
+    top: 23px;
+    right: 23px;
+    width: 50px;
+    height: 30px;
+    background-color: var(--corBackgroundSecundaria);
+    border-radius: 20px;
+    padding: 5px 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+label span {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #656e77;
+    border-radius: 100%;
+    transition: all ease .3s;
+}
+
+.ativar-dark:checked~.dark-mode label {
+    background-color: #d4e9ff;
+}
+
+.ativar-dark:checked~.dark-mode label span {
+    background-color: #8b98a7;
+    transform: translateX(21px);
+    transition: all ease .3s;
+}
+
+.ativar-dark:checked~.dark-mode {
+    --corBackgroundPrimaria: #000;
+    --corBackgroundSecundaria: #000;
+    --corTextPrimaria: #fff;
+    --corTextoSecundaria: #fff;
+}
+
+.ativar-dark:checked~.dark-mode header {
+    background-color: #0c0d1d;
+}
+
+.ativar-dark:checked~.dark-mode header .container {
+    background-color: var(--corBackgroundDark);
+}
+
+.ativar-dark:checked~.dark-mode .container {
+    background-color: var(--corBackgroundDark);
+}
+
+.ativar-dark:checked~.dark-mode main {
+    background-color: var(--corBackgroundSecundaria);
+}
+
+.ativar-dark:checked~.dark-mode footer .container {
+    background-color: rgb(30, 25, 49);
+}
+
+.ativar-dark:checked~.dark-mode label {
+    color: white;
+}
+
+.ativar-dark:checked~.dark-mode .curriculo {
+    background-color: #3f3f3f;
+}
 
 /* @MEDIA */
 @media only screen and (min-width: 768px) {
-  
     .linha {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        justify-content: space-between ;
+        justify-content: space-between;
     }
-
     .container {
         width: 100%;
         max-width: 1125px;
@@ -219,34 +277,27 @@ header .container {
         padding: 30px;
         /* box-shadow: 10px 0px 5px #636363; */
     }
-
     footer nav .redes-sociais {
         display: flex;
         justify-content: center;
     }
-
     header {
         padding: 30px 0 0;
     }
-
     header .coluna img {
         max-width: 250px;
         border-radius: 50px;
     }
-
     header .coluna-direita {
         text-align: left;
     }
-
     main .coluna section {
         border: 1px solid #d4e9ff;
         padding: 20px;
     }
-
     main .coluna {
         padding: 0;
     }
-
     footer nav .redes-sociais li {
         margin: 0 15px;
         text-align: center;
